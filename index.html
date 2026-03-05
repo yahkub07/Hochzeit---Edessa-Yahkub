@@ -6,136 +6,157 @@
 <title>Edessa & Yahkub – Hochzeit</title>
 
 <style>
+
 body{
-margin:0;
-font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
-background:#f7f7f7;
-color:#111;
-display:flex;
-flex-direction:column;
-align-items:center;
-justify-content:center;
-height:100vh;
-text-align:center;
+    margin:0;
+    font-family: "Georgia", serif;
+    background:#f5efe6;
+    color:#4b4036;
+    text-align:center;
 }
 
-.container{
-max-width:700px;
-padding:40px;
+header{
+    padding:100px 20px;
+    background:#e8dfd2;
 }
 
 h1{
-font-size:60px;
-margin:10px 0;
-font-weight:600;
+    font-size:48px;
+    margin-bottom:10px;
 }
 
 h2{
-font-weight:300;
-letter-spacing:3px;
+    font-weight:normal;
 }
 
 .date{
-font-size:22px;
-margin:20px 0;
+    font-size:22px;
+    margin-top:10px;
+}
+
+section{
+    padding:60px 20px;
+}
+
+.container{
+    max-width:800px;
+    margin:auto;
 }
 
 .location{
-font-size:18px;
-opacity:0.7;
-margin-bottom:40px;
+    background:white;
+    padding:30px;
+    border-radius:10px;
+    margin:20px 0;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
 }
 
 .countdown{
-display:flex;
-justify-content:center;
-gap:20px;
-font-size:22px;
-flex-wrap:wrap;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    margin-top:30px;
+    flex-wrap:wrap;
 }
 
-.box{
-background:white;
-padding:20px 25px;
-border-radius:10px;
-box-shadow:0 10px 30px rgba(0,0,0,0.08);
+.time-box{
+    background:white;
+    padding:20px;
+    border-radius:10px;
+    min-width:90px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.05);
 }
 
-.number{
-font-size:36px;
-font-weight:600;
-}
-
-.label{
-font-size:12px;
-letter-spacing:2px;
-opacity:0.6;
+.time-box span{
+    font-size:32px;
+    display:block;
+    font-weight:bold;
 }
 
 footer{
-margin-top:50px;
-font-size:14px;
-opacity:0.6;
+    padding:40px;
+    background:#e8dfd2;
+    margin-top:40px;
 }
+
 </style>
 </head>
 
 <body>
 
-<div class="container">
-
-<h2>Wir heiraten</h2>
+<header>
 <h1>Edessa & Yahkub</h1>
-
+<h2>Wir heiraten</h2>
 <div class="date">06. Juni 2026</div>
-<div class="location">
-Carte Blanche 99<br>
-Niederlande
-</div>
 
 <div class="countdown">
 
-<div class="box">
-<div id="days" class="number">0</div>
-<div class="label">TAGE</div>
+<div class="time-box">
+<span id="days">0</span>
+Tage
 </div>
 
-<div class="box">
-<div id="hours" class="number">0</div>
-<div class="label">STUNDEN</div>
+<div class="time-box">
+<span id="hours">0</span>
+Stunden
 </div>
 
-<div class="box">
-<div id="minutes" class="number">0</div>
-<div class="label">MINUTEN</div>
+<div class="time-box">
+<span id="minutes">0</span>
+Minuten
 </div>
 
-<div class="box">
-<div id="seconds" class="number">0</div>
-<div class="label">SEKUNDEN</div>
+<div class="time-box">
+<span id="seconds">0</span>
+Sekunden
 </div>
 
 </div>
+</header>
+
+<section>
+<div class="container">
+
+<h2>Trauung</h2>
+
+<div class="location">
+<p><strong>17:00 Uhr</strong></p>
+<p>St. Jesaja Kirche</p>
+<p>Zollstraße 11i</p>
+<p>48599 Gronau</p>
+</div>
+
+<h2>Hochzeitsfeier</h2>
+
+<div class="location">
+<p><strong>19:00 Uhr</strong></p>
+<p>Carte Blanche 99</p>
+<p>Bornsedijk 100</p>
+<p>7576 PG Oldenzaal</p>
+<p>Niederlande</p>
+</div>
+
+</div>
+</section>
 
 <footer>
-Wir freuen uns, diesen besonderen Tag mit euch zu feiern 💍
+<p>Wir freuen uns, diesen besonderen Tag mit euch zu feiern ❤️</p>
 </footer>
-
-</div>
 
 <script>
 
-const weddingDate = new Date("June 6, 2026 15:00:00").getTime();
+const weddingDate = new Date("June 6, 2026 17:00:00").getTime();
 
 const countdown = setInterval(function(){
 
 const now = new Date().getTime();
+
 const distance = weddingDate - now;
 
-const days = Math.floor(distance / (1000*60*60*24));
-const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
-const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
-const seconds = Math.floor((distance % (1000*60)) / 1000);
+const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
 document.getElementById("days").innerHTML = days;
 document.getElementById("hours").innerHTML = hours;
@@ -144,7 +165,7 @@ document.getElementById("seconds").innerHTML = seconds;
 
 if(distance < 0){
 clearInterval(countdown);
-document.querySelector(".countdown").innerHTML = "Heute ist unser großer Tag! 💍";
+document.querySelector(".countdown").innerHTML = "Heute ist unser großer Tag!";
 }
 
 },1000);
