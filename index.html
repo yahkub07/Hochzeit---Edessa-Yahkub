@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Edessa & Yahkub – Hochzeit</title>
+
+<style>
+body{
+margin:0;
+font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial;
+background:#f7f7f7;
+color:#111;
+display:flex;
+flex-direction:column;
+align-items:center;
+justify-content:center;
+height:100vh;
+text-align:center;
+}
+
+.container{
+max-width:700px;
+padding:40px;
+}
+
+h1{
+font-size:60px;
+margin:10px 0;
+font-weight:600;
+}
+
+h2{
+font-weight:300;
+letter-spacing:3px;
+}
+
+.date{
+font-size:22px;
+margin:20px 0;
+}
+
+.location{
+font-size:18px;
+opacity:0.7;
+margin-bottom:40px;
+}
+
+.countdown{
+display:flex;
+justify-content:center;
+gap:20px;
+font-size:22px;
+flex-wrap:wrap;
+}
+
+.box{
+background:white;
+padding:20px 25px;
+border-radius:10px;
+box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.number{
+font-size:36px;
+font-weight:600;
+}
+
+.label{
+font-size:12px;
+letter-spacing:2px;
+opacity:0.6;
+}
+
+footer{
+margin-top:50px;
+font-size:14px;
+opacity:0.6;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Wir heiraten</h2>
+<h1>Edessa & Yahkub</h1>
+
+<div class="date">06. Juni 2026</div>
+<div class="location">
+Carte Blanche 99<br>
+Niederlande
+</div>
+
+<div class="countdown">
+
+<div class="box">
+<div id="days" class="number">0</div>
+<div class="label">TAGE</div>
+</div>
+
+<div class="box">
+<div id="hours" class="number">0</div>
+<div class="label">STUNDEN</div>
+</div>
+
+<div class="box">
+<div id="minutes" class="number">0</div>
+<div class="label">MINUTEN</div>
+</div>
+
+<div class="box">
+<div id="seconds" class="number">0</div>
+<div class="label">SEKUNDEN</div>
+</div>
+
+</div>
+
+<footer>
+Wir freuen uns, diesen besonderen Tag mit euch zu feiern 💍
+</footer>
+
+</div>
+
+<script>
+
+const weddingDate = new Date("June 6, 2026 15:00:00").getTime();
+
+const countdown = setInterval(function(){
+
+const now = new Date().getTime();
+const distance = weddingDate - now;
+
+const days = Math.floor(distance / (1000*60*60*24));
+const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+const seconds = Math.floor((distance % (1000*60)) / 1000);
+
+document.getElementById("days").innerHTML = days;
+document.getElementById("hours").innerHTML = hours;
+document.getElementById("minutes").innerHTML = minutes;
+document.getElementById("seconds").innerHTML = seconds;
+
+if(distance < 0){
+clearInterval(countdown);
+document.querySelector(".countdown").innerHTML = "Heute ist unser großer Tag! 💍";
+}
+
+},1000);
+
+</script>
+
+</body>
+</html>
